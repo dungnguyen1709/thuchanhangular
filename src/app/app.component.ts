@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'thuchanhangular';
+  text = 'My name is Tobi';
+  textSize = 17;
+  status = true;
+
+  changeSize(): void {
+    this.textSize++;
+  }
+
+  changeStatus(): void {
+    this.status = !this.status;
+  }
 }
