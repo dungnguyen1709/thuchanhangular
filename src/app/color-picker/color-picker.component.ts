@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorPickerComponent implements OnInit {
 
-  background = '#00e067';
+  background = '#d6060d';
 
   constructor() { }
 
