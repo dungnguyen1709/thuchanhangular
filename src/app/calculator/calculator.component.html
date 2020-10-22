@@ -1,0 +1,19 @@
+<p>calculator works!</p>
+<div class="container" >
+  <input type="number" class="btn btn-primary" [value]="first" (change)="onFirstChange($event.target.value)">
+  <select class="btn btn-primary" [value]="second" (change)="onSecondChange($event.target.value)">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" class="btn btn-primary" [(ngModel)]="second">
+</div>
+<div>
+  <button class="btn btn-primary" (click)="calculate()">
+    Run
+  </button>
+</div>
+<div class="output">
+  {{outPut}}
+</div>
