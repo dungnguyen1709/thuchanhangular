@@ -8,7 +8,7 @@ import {IUser} from '../iuser';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+   disableAll: boolean;
   text: string;
   p: number = 1;
   page_title = 'User list';

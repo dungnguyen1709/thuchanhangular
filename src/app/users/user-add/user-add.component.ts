@@ -16,7 +16,7 @@ export class UserAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUser = this.fb.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
       group: ['', [Validators.required]],
       avatar: ['', [Validators.required]],
@@ -27,6 +27,10 @@ export class UserAddComponent implements OnInit {
   onSubmit(): void {
     console.log(this.addUser);
     this.data.emit(this.addUser.value);
+  }
+
+  name(): void {
+    return this.addUser.get('name');
   }
 
 
