@@ -1,31 +1,50 @@
+<form [formGroup]="addUser" (ngSubmit)="onSubmit()">
 <div>
   <table class="table table-bordered">
     <tr>
       <td>Name</td>
-      <td><input class="form-control" type="text" [(ngModel)]="name"></td>
+      <td>
+<!--        <input class="form-control" type="text" [(ngModel)]="name">-->
+        <input type="text" class="form-control" formControlName="name">
+      </td>
     </tr>
     <tr>
       <td>Email</td>
-      <td><input class="form-control" type="text" [(ngModel)]="email"></td>
+      <td>
+<!--        <input class="form-control" type="text" [(ngModel)]="email">-->
+        <input type="text" class="form-control" formControlName="email">
+      </td>
     </tr>
     <tr>
       <td>Group</td>
-      <td><input class="form-control" type="text" [(ngModel)]="group"></td>
+      <td>
+<!--        <input class="form-control" type="text" [(ngModel)]="group">-->
+        <input type="text" class="form-control" formControlName="group">
+      </td>
     </tr>
     <tr>
       <td>Image</td>
-      <td><input class="form-control" type="text" [(ngModel)]="avatar"></td>
+      <td>
+<!--        <input class="form-control" type="text" [(ngModel)]="avatar">-->
+        <input type="text" class="form-control" formControlName="avatar">
+      </td>
     </tr>
     <tr>
       <td>Role</td>
-      <td><input class="form-control" type="text" [(ngModel)]="role"></td>
+      <td>
+<!--        <input class="form-control" type="text" [(ngModel)]="role">-->
+        <input type="text" class="form-control" formControlName="role">
+      </td>
     </tr>
     <tr>
       <td></td>
       <td>
-        <button class="btn btn-primary" (click)="getData()">Add</button>
+        <button class="btn btn-primary" type="submit">Add</button>
       </td>
     </tr>
   </table>
-
 </div>
+</form>
+
+
+

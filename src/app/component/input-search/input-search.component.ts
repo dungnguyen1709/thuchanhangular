@@ -15,7 +15,7 @@ export class InputSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getValue(event) {
+  getValue(event): void {
     let value = event.target.value;
     this.keyword.emit(value);
   }
