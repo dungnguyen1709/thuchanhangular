@@ -29,9 +29,5 @@ export class UserAddComponent implements OnInit {
     this.data.emit(this.addUser.value);
   }
 
-  name(): void {
-    return this.addUser.get('name');
-  }
-
 
 }

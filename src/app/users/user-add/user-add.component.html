@@ -18,6 +18,12 @@
       <td>Email</td>
       <td>
         <input type="text" class="form-control" formControlName="email">
+        <div *ngIf="addUser.get('name').hasError('required')&& addUser.touched" class="text-danger">
+          field require
+        </div>
+        <div *ngIf="addUser.get('email').hasError('required')" class="text-danger">
+          field not format email
+        </div>
       </td>
     </tr>
 
