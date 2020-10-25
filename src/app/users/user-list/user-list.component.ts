@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IUser} from '../iuser';
-
+import {IUser} from "../iuser";
 
 @Component({
   selector: 'app-user-list',
@@ -8,7 +7,7 @@ import {IUser} from '../iuser';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-   disableAll: boolean;
+  disable = true;
   text: string;
   p: number = 1;
   page_title = 'User list';
@@ -21,7 +20,6 @@ export class UserListComponent implements OnInit {
       group: 'C0520K1',
       avatar: 'https://png.pngtree.com/png-vector/20190704/ourmid/pngtree-businessman-user-avatar-free-vector-png-image_1538405.jpg',
       role: 1,
-      status: true
     },
     {
       name: 'Duc',
@@ -29,9 +27,8 @@ export class UserListComponent implements OnInit {
       group: 'C0520K1',
       avatar: 'https://png.pngtree.com/element_our/20190604/ourmid/pngtree-user-avatar-boy-image_1482937.jpg',
       role: 2,
-      status: true
     }
-  ];
+  ]
 
   sizeImage = '100';
   constructor() { }
@@ -40,15 +37,15 @@ export class UserListComponent implements OnInit {
     this.filterUser = this.users;
   }
 
-  disableImage(): void {
+  disableImage() {
     this.statusHidden = !this.statusHidden;
   }
 
-  search(keyword): void {
+  search(keyword) {
     this.filterUser = (keyword) ? this.findUserByName(keyword) : this.users;
   }
 
-  findUserByName(name: string): IUser[]{
+  findUserByName(name: string) : IUser[]{
       let result: IUser[] = [];
       for(let user of this.users) {
         if (user.name.toLowerCase().includes(name.toLowerCase())) {
@@ -58,14 +55,19 @@ export class UserListComponent implements OnInit {
       return result;
   }
 
-  delete(index): void {
+  delete(index) {
     if (confirm('Are you sure?')) {
       this.users.splice(index,1);
       this.text = 'delete success!'
     }
   }
 
-  addUser(data): void {
+  addUser(data) {
     this.users.push(data)
   }
+
+  disableUser() {
+    this.disable = !this.disable;
+  }
+
 }

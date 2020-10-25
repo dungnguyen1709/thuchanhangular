@@ -7,7 +7,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class InputSearchComponent implements OnInit {
 
-  @Output() keyword = new EventEmitter();
+  @Output() keyword = new EventEmitter()
 
   constructor() {
   }
@@ -15,7 +15,7 @@ export class InputSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getValue(event): void {
+  getValue(event) {
     let value = event.target.value;
     this.keyword.emit(value);
   }

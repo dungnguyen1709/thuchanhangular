@@ -1,5 +1,5 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-user-add',
@@ -8,26 +8,23 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class UserAddComponent implements OnInit {
 
+  newUserForm: FormGroup;
   @Output() data = new EventEmitter();
-  addUser: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.addUser = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]],
-      group: ['', [Validators.required]],
-      avatar: ['', [Validators.required]],
-      role: ['', [Validators.required]]
-    });
+    this.newUserForm = this.formBuilder.group(
+      {
+        name: ['',[Validators.required, Validators.minLength(6)]],
+        email: ['',[Validators.required,Validators.email]],
+        group: ['',[Validators.required]],
+      }
+    )
   }
 
-  onSubmit(): void {
-    console.log(this.addUser);
-    this.data.emit(this.addUser.value);
+  onSubmit() {
+    this.data.emit(this.newUserForm.value);
   }
-
 
 }

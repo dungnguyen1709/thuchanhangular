@@ -1,63 +1,39 @@
-<form [formGroup]="addUser" (ngSubmit)="onSubmit()">
 <div>
-  <table class="table table-bordered">
+  <form (ngSubmit)="onSubmit()" [formGroup]="newUserForm">
+    <table class="table table-bordered">
     <tr>
       <td>Name</td>
-      <td>
-        <input type="text" class="form-control" formControlName="name">
-        <div *ngIf="addUser.get('name').hasError('required')&& addUser.touched" class="text-danger">
-          field require
-        </div>
-        <div *ngIf="addUser.get('name').hasError('minlength')" class="text-danger">
+      <td><input class="form-control" type="text" formControlName="name">
+      <div *ngIf="newUserForm.get('name').hasError('required') && newUserForm.touched" class="text-danger">
+        field require
+      </div>
+        <div *ngIf="newUserForm.get('name').hasError('minlength')" class="text-danger">
           field min length 6
         </div>
       </td>
     </tr>
-
     <tr>
       <td>Email</td>
-      <td>
-        <input type="text" class="form-control" formControlName="email">
-        <div *ngIf="addUser.get('name').hasError('required')&& addUser.touched" class="text-danger">
+      <td><input class="form-control" type="text" formControlName="email">
+        <div *ngIf="newUserForm.get('email').hasError('required') && newUserForm.touched" class="text-danger">
           field require
         </div>
-        <div *ngIf="addUser.get('email').hasError('required')" class="text-danger">
+        <div *ngIf="newUserForm.get('email').hasError('email')" class="text-danger">
           field not format email
         </div>
       </td>
     </tr>
-
     <tr>
       <td>Group</td>
-      <td>
-
-        <input type="text" class="form-control" formControlName="group">
-      </td>
+      <td><input class="form-control" type="text" formControlName="group" ></td>
     </tr>
-
-    <tr>
-      <td>Image</td>
-      <td>
-        <input type="text" class="form-control" formControlName="avatar">
-      </td>
-    </tr>
-
-    <tr>
-      <td>Role</td>
-      <td>
-        <input type="text" class="form-control" formControlName="role">
-      </td>
-    </tr>
-
     <tr>
       <td></td>
       <td>
-        <button class="btn btn-primary" type="submit" [disabled]="addUser.invalid">Add</button>
+        <button class="btn btn-primary" type="submit" [disabled]="newUserForm.invalid">Add</button>
       </td>
     </tr>
   </table>
+  </form>
+
 </div>
-</form>
-
-
-
